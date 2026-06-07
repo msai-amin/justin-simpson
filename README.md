@@ -28,17 +28,19 @@ npm run build      # outputs static site to ./dist/
 npm run preview    # preview the production build
 ```
 
-## Deploy it (free)
+## It's deployed
 
-`npm run build` produces a plain static `dist/` folder. Any of these work:
+Live at **https://msai-amin.github.io/justin-simpson/**, hosted on GitHub Pages.
 
-- **Netlify / Vercel** — import the repo; build command `npm run build`, publish dir `dist`.
-- **GitHub Pages** — push `dist/` (or use the official Astro Pages action). If serving from a
-  subpath like `user.github.io/justin`, set `site` and `base` in `astro.config.mjs`.
-- **Cloudflare Pages** — same build settings.
+Every push to `main` rebuilds and redeploys automatically via
+`.github/workflows/deploy.yml` (the official `withastro/action`, pinned to Node 22).
+So to publish a change: edit, commit, `git push` — done.
 
-A custom domain (e.g. `justinsimpson.xyz`) can be pointed at any of the above in their
-dashboard.
+### Custom domain (optional, later)
+To serve from a real domain (e.g. `justinsimpson.com`) instead of the `/justin-simpson/`
+subpath: add the domain in the repo's **Settings → Pages**, then in `astro.config.mjs`
+set `base: '/'` and `site: 'https://your-domain'`, and push. (With the subpath gone, the
+`base`-prefixed asset links resolve at the root automatically.)
 
 ## Add a publication
 
