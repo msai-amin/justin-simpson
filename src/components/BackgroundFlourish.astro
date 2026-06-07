@@ -1,0 +1,39 @@
+---
+// Ambient backdrop shown only in Physis: soft flowing "contour lines"
+// (a topographic, land-like motif) — the organic counterpart to
+// Technê's rectilinear wireframe grid. Hidden in Technê via --flourish-opacity.
+---
+
+<div class="flourish" aria-hidden="true">
+  <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice" role="presentation">
+    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M-40,640 C 220,600 420,690 660,630 S 1040,560 1240,628" opacity="0.9" />
+      <path d="M-40,560 C 240,520 440,610 680,548 S 1050,478 1240,548" opacity="0.8" />
+      <path d="M-40,480 C 260,440 460,536 700,470 S 1060,398 1240,470" opacity="0.7" />
+      <path d="M-40,400 C 280,362 480,460 720,394 S 1070,320 1240,394" opacity="0.6" />
+      <path d="M-40,320 C 300,286 500,386 740,318 S 1080,244 1240,320" opacity="0.5" />
+      <path d="M-40,240 C 320,210 520,312 760,244 S 1090,170 1240,246" opacity="0.4" />
+      <path d="M-40,160 C 340,134 540,238 780,170 S 1100,98 1240,172" opacity="0.3" />
+    </g>
+  </svg>
+</div>
+
+<style>
+  .flourish {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    color: var(--accent);
+    opacity: var(--flourish-opacity);
+    transition: opacity var(--mode-fade) var(--ease);
+  }
+  .flourish svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* keep the lines faint so text stays readable */
+    opacity: 0.16;
+  }
+</style>

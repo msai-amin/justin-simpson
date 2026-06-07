@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Justin Simpson">
+  <defs>
+    <clipPath id="ring"><circle cx="32" cy="32" r="30"/></clipPath>
+  </defs>
+  <!-- Technê side (graphite) as the base -->
+  <circle cx="32" cy="32" r="30" fill="#14171a"/>
+  <!-- Physis side (moss), bounded by an organic, wavy divider -->
+  <path
+    d="M-2,-2 L32,-2 C 41,16 23,30 32,46 C 39,58 27,60 32,66 L-2,66 Z"
+    fill="#466b54" clip-path="url(#ring)"/>
+  <!-- the seam, in parchment -->
+  <path
+    d="M32,-2 C 41,16 23,30 32,46 C 39,58 27,60 32,66"
+    fill="none" stroke="#f4efe3" stroke-width="2.4" clip-path="url(#ring)"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#f4efe3" stroke-width="2.5"/>
+</svg>

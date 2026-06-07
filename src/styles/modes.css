@@ -1,0 +1,94 @@
+/* ============================================================
+   modes.css — the Physis ⇄ Technê theming layer
+   All themable design tokens live here, scoped by [data-mode].
+   global.css consumes them via var(--token).
+   Palette is drawn from Justin's portrait: green/teal organic
+   forms (Physis) flowing into graphite + ochre (Technê).
+   ============================================================ */
+
+:root {
+  /* motion + layout constants shared by both modes */
+  --container: 1080px;
+  --container-wide: 1240px;
+  --step: clamp(1.1rem, 0.9rem + 0.9vw, 1.25rem);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --mode-fade: 600ms;
+}
+
+/* ---------------------------- PHYSIS ---------------------------- */
+[data-mode="physis"] {
+  color-scheme: light;
+
+  --bg:        #f4efe3;   /* warm parchment */
+  --bg-2:      #ece4d3;   /* recessed panel */
+  --surface:   rgba(255, 255, 255, 0.55);
+  --surface-2: rgba(255, 255, 255, 0.78);
+
+  --ink:    #232a22;      /* deep green-black */
+  --ink-2:  #5c5a4c;      /* muted */
+  --ink-3:  #847f6d;      /* faint */
+
+  --accent:    #466b54;   /* moss */
+  --accent-2:  #9a6a4f;   /* clay */
+  --accent-ink:#f4efe3;   /* text on accent */
+  --glow:      rgba(70, 107, 84, 0.16);
+
+  --line:      rgba(35, 42, 34, 0.16);
+  --line-soft: rgba(35, 42, 34, 0.09);
+  --shadow:    0 18px 50px -28px rgba(40, 50, 35, 0.55);
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body:    "Spectral", Georgia, serif;
+  --font-ui:      "Spectral", Georgia, serif;
+
+  --radius:    16px;
+  --radius-sm: 10px;
+  --display-spacing: -0.015em;
+  --eyebrow-spacing: 0.22em;
+  --weight-display: 560;
+  --weight-strong: 600;
+
+  --grid-opacity: 0;     /* wireframe hidden */
+  --flourish-opacity: 0.5;
+  --portrait-filter: saturate(1.06) contrast(1.02);
+  --portrait-blend: 0;
+}
+
+/* ---------------------------- TECHNÊ ---------------------------- */
+[data-mode="techne"] {
+  color-scheme: dark;
+
+  --bg:        #14171a;   /* graphite */
+  --bg-2:      #1a1e22;   /* recessed panel */
+  --surface:   rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+
+  --ink:    #e7eaec;
+  --ink-2:  #9aa2a9;
+  --ink-3:  #6b747b;
+
+  --accent:    #7fd7c4;   /* cool teal — the green swirl, gone technical */
+  --accent-2:  #d8b878;   /* ochre — the rice/sand tones */
+  --accent-ink:#10130f;
+  --glow:      rgba(127, 215, 196, 0.18);
+
+  --line:      rgba(231, 234, 236, 0.14);
+  --line-soft: rgba(231, 234, 236, 0.07);
+  --shadow:    0 18px 50px -30px rgba(0, 0, 0, 0.8);
+
+  --font-display: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-body:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-ui:      "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius:    2px;
+  --radius-sm: 2px;
+  --display-spacing: -0.02em;
+  --eyebrow-spacing: 0.28em;
+  --weight-display: 500;
+  --weight-strong: 600;
+
+  --grid-opacity: 1;     /* wireframe grid visible */
+  --flourish-opacity: 0;
+  --portrait-filter: grayscale(0.4) contrast(1.06) brightness(0.92);
+  --portrait-blend: 1;
+}

@@ -1,0 +1,51 @@
+---
+// The signature control: one toggle reskins the whole page,
+// Physis (φύσις · nature) ⇄ Technê (τέχνη · technology).
+---
+
+<button
+  class="mode-toggle"
+  id="mode-toggle"
+  type="button"
+  aria-pressed="false"
+  title="Switch theme: Physis (nature) ⇄ Technê (technology)"
+>
+  <span class="thumb" aria-hidden="true"></span>
+  <span class="opt opt--physis"><span class="greek">φύσις</span>&nbsp;Physis</span>
+  <span class="opt opt--techne">Technê&nbsp;<span class="greek">τέχνη</span></span>
+  <span class="sr-only">Toggle the visual theme between Physis and Technê</span>
+</button>
+
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById("mode-toggle");
+  const sweep = document.getElementById("sweep");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function sync() {
+    const isTechne = root.getAttribute("data-mode") === "techne";
+    toggle?.setAttribute("aria-pressed", String(isTechne));
+  }
+
+  function runSweep() {
+    if (!sweep || reduce.matches) return;
+    sweep.classList.remove("run");
+    // force reflow so the animation restarts on every toggle
+    void sweep.offsetWidth;
+    sweep.classList.add("run");
+  }
+
+  sweep?.addEventListener("animationend", () => sweep.classList.remove("run"));
+
+  toggle?.addEventListener("click", () => {
+    const next = root.getAttribute("data-mode") === "techne" ? "physis" : "techne";
+    runSweep();
+    root.setAttribute("data-mode", next);
+    try {
+      localStorage.setItem("mode", next);
+    } catch (e) {}
+    sync();
+  });
+
+  sync();
+</script>

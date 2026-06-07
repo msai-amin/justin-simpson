@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../assets/justin.jpg";
+---
+
+<section class="hero" id="top">
+  <div class="wrap wrap--wide">
+    <div class="grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Continental philosophy of environment &amp; technology</p>
+        <h1>Thinking with the <em>more-than-human</em> world.</h1>
+        <p class="lede">
+          I'm a philosopher working where environment and technology meet — in
+          phenomenology, environmental ethics, and the lives of the beings we
+          share a world with.
+        </p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#writing">Read the work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <figure class="portrait">
+        <Image
+          src={portrait}
+          alt="Portrait of Justin Simpson — a painterly study of a reader amid forms that flow from green to graphite."
+          widths={[480, 720, 1000, 1200]}
+          sizes="(min-width: 900px) 42vw, 90vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption class="caption">Justin Simpson · Philosophy</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import Base from "../layouts/Base.astro";
+import BackgroundFlourish from "../components/BackgroundFlourish.astro";
+import ModeToggle from "../components/ModeToggle.astro";
+import Hero from "../components/Hero.astro";
+import FeatureBook from "../components/FeatureBook.astro";
+import About from "../components/About.astro";
+import ResearchStrands from "../components/ResearchStrands.astro";
+import Publications from "../components/Publications.astro";
+import CV from "../components/CV.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base>
+  <BackgroundFlourish />
+
+  <header class="site-header">
+    <div class="wrap wrap--wide bar">
+      <a class="wordmark" href="#top">Justin Simpson <span class="glyph">/</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#research">Research</a>
+        <a class="nav-link" href="#writing">Writing</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <ModeToggle />
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <Hero />
+    <FeatureBook />
+    <About />
+    <ResearchStrands />
+    <Publications />
+    <CV />
+    <Contact />
+  </main>
+
+  <Footer />
+</Base>
+
+<script>
+  const els = document.querySelectorAll(".reveal");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+  } else {
+    els.forEach((el) => el.classList.add("is-visible"));
+  }
+</script>

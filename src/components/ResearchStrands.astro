@@ -1,0 +1,56 @@
+---
+const strands = [
+  {
+    n: "i",
+    title: "A Joyful Environmental Ethic",
+    body: "Gratitude, reciprocity, and gift — an ethic, after Robin Wall Kimmerer, in which curiosity itself becomes a virtue.",
+  },
+  {
+    n: "ii",
+    title: "Nonhuman Epistemic Agency",
+    body: "A posthumanist social epistemology: nonhumans as knowers with tacit, embodied knowledge, and the injustices that can be done to them.",
+  },
+  {
+    n: "iii",
+    title: "Biocultural Diversity",
+    body: "Worlds of multispecies flourishing — read through two rices, engineered and heritage, and what each lets live.",
+  },
+  {
+    n: "iv",
+    title: "Philosophical Anthropology",
+    body: "After Hans Blumenberg: the human as a creature of detour and contingency, surviving by indirection rather than mastery.",
+  },
+  {
+    n: "v",
+    title: "Phenomenology of Technology",
+    body: "How instruments mediate perception and shape what we can know — in the lineage of Don Ihde and instrumental realism.",
+  },
+  {
+    n: "vi",
+    title: "Listening &amp; Dialogue",
+    body: "Conversation as an event: how genuine listening opens speech to the unforeseen, the shared, and the new.",
+  },
+];
+---
+
+<section class="strands reveal" id="research">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <span class="index">02 — Research</span>
+      <h2>Six strands of inquiry</h2>
+      <span class="rule"></span>
+    </div>
+
+    <div class="grid">
+      {
+        strands.map((s) => (
+          <article class="strand">
+            <span class="n">{s.n}.</span>
+            <h3 set:html={s.title} />
+            <p set:html={s.body} />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

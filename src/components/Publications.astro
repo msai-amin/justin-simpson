@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+
+const typeLabel = {
+  book: "Book",
+  chapter: "Book chapter",
+  article: "Article",
+  review: "Review",
+};
+
+const pubs = (await getCollection("publications")).sort((a, b) => {
+  // forthcoming work floats to the very top
+  if (a.data.forthcoming !== b.data.forthcoming) return a.data.forthcoming ? -1 : 1;
+  if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+  return b.data.order - a.data.order;
+});
+---
+
+<section class="pubs reveal" id="writing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="index">03 — Writing</span>
+      <h2>Selected publications</h2>
+      <span class="rule"></span>
+    </div>
+
+    <ol>
+      {
+        pubs.map((p) => (
+          <li class:list={["pub", { "pub--book": p.data.type === "book" }]}>
+            <div class="year">{p.data.forthcoming ? "Forthcoming" : p.data.year}</div>
+            <div class="pub-main">
+              <h3>
+                {p.data.url ? (
+                  <a href={p.data.url} target="_blank" rel="noopener">
+                    {p.data.title}
+                  </a>
+                ) : (
+                  p.data.title
+                )}
+              </h3>
+              <p class="venue">
+                {p.data.venue}
+                {p.data.coauthors && p.data.coauthors.length > 0 && (
+                  <span> · with {p.data.coauthors.join(", ")}</span>
+                )}
+              </p>
+              <p class="summary">{p.data.summary}</p>
+              <div class="meta-row">
+                <span class="type">{typeLabel[p.data.type]}</span>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="more">
+      <a href="https://philpeople.org/profiles/justin-simpson" target="_blank" rel="noopener">
+        Full list on PhilPeople &rarr;
+      </a>
+    </p>
+  </div>
+</section>
