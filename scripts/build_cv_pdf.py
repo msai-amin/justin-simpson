@@ -65,10 +65,8 @@ story = []
 
 # ---- Header ----
 story.append(Paragraph("Justin Simpson", name_style))
-story.append(Paragraph("Lecturer II &middot; Department of Philosophy, "
-                       "University of Texas Rio Grande Valley", sub_style))
-story.append(Paragraph('<a href="mailto:justin.simpson@utrgv.edu">'
-                       "justin.simpson@utrgv.edu</a>", contact_style))
+story.append(Paragraph("Assistant Professor &middot; Department of Humanities, "
+                       "Marshall University", sub_style))
 
 # ---- Areas ----
 story += section("Areas of Specialization")
@@ -80,8 +78,9 @@ story.append(e("Ethics of Technology, Bioethics, Indigenous Philosophies, Ethics
 
 # ---- Appointments ----
 story += section("Academic Appointments")
-story.append(e("University of Texas Rio Grande Valley (UTRGV), Lecturer, "
-               "August 2022&ndash;present"))
+story.append(e("Marshall University, Assistant Professor of Humanities, present"))
+story.append(e("University of Texas Rio Grande Valley, Lecturer in Philosophy, "
+               "August 2022&ndash;2026"))
 
 # ---- Education ----
 story += section("Education")
